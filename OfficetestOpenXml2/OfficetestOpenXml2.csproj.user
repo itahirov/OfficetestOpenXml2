@@ -10,6 +10,8 @@
     <UseGlobalApplicationHostFile />
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
     <ActiveDebugTarget>ContainerToolsProjectDebugExtension</ActiveDebugTarget>
+    <NameOfLastUsedPublishProfile>C:\Users\v-istahi\Documents\Training\OSS_focused\WindowsContainers\OfficetestOpenXml2\OfficetestOpenXml2\OfficetestOpenXml2\Properties\PublishProfiles\istahiacr1.pubxml</NameOfLastUsedPublishProfile>
+    <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

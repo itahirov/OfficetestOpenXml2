@@ -28,6 +28,24 @@ namespace OfficetestOpenXml2.Controllers
             // Close the handle explicitly.
             wordprocessingDocument.Close();
         }
+
+        public static void CreateWordprocessingDocument(string filepath)
+        {
+            // Create a document by supplying the filepath. 
+            using (WordprocessingDocument wordDocument =
+                WordprocessingDocument.Create(filepath, WordprocessingDocumentType.Document))
+            {
+                // Add a main document part. 
+                MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
+
+                // Create the document structure and add some text.
+                mainPart.Document = new Document();
+                Body body = mainPart.Document.AppendChild(new Body());
+                Paragraph para = body.AppendChild(new Paragraph());
+                Run run = para.AppendChild(new Run());
+                run.AppendChild(new Text("Create text in body - CreateWordprocessingDocument"));
+            }
+        }
         public ActionResult Index()
         {
             return View();
@@ -36,15 +54,7 @@ namespace OfficetestOpenXml2.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-            /*DocumentFormat.OpenXml.Packaging.WordprocessingDocument wordprocessingDocument = DocumentFormat.OpenXml.Packaging.WordprocessingDocument.Open("test.docx", true);
-            DocumentFormat.OpenXml.Wordprocessing.Body body = wordprocessingDocument.MainDocumentPart.Document.Body;
-            // Add new text.
-            Paragraph para = body.AppendChild(new Paragraph());
-            Run run = para.AppendChild(new Run());
-            run.AppendChild(new Text("nigigase"));*/
-            //string strDoc = @"C:\Users\v-istahi\Documents\temp1.docx";
-            string strDoc = @"C:\inetpub\wwwroot\temp1.docx";
-            //string strDoc = @"D:\home\wwwroot\temp1.docx";
+            string strDoc = @"C:\\inetpub\\wwwroot\\reportword\\temp1.docx";
             string strTxt = "Append text in body - OpenAndAddTextToWordDocument";
             DateTime dt = DateTime.Now;
             strTxt = dt.ToString("yyyMMMddhhmm");
@@ -55,6 +65,9 @@ namespace OfficetestOpenXml2.Controllers
 
         public ActionResult Contact()
         {
+            string strDoc = @"C:\\inetpub\\wwwroot\\reportword\\MyDoc.docx\\temp1.docx";
+            //string strDoc = @"temp1.docx";
+            CreateWordprocessingDocument(strDoc);
             ViewBag.Message = "Your contact page.";
 
             return View();
